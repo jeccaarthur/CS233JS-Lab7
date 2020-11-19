@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {   // inherited from react component
+  constructor (props) {
+    super(props);
+    this.state = {      // responsible for how the component displays
+      appTitle: "Hello World",
+      appMessage: "My very first app in React"
+    };  
+  }
+
+  render() {      // always returns jsx (not delimited)
+    return (
+      <div className="App">     {/* "className" instead of "class" in jsx - "class" is js keyword */}   
+        <header className="App-header">
+          <h1 className="App-title">{this.state.appTitle}</h1>
+          <p>
+            {this.state.appMessage}
+          </p>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
